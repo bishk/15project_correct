@@ -21,7 +21,7 @@ def fft_wrapper(file_name, show_plot = True, n_secs = 90, f_max_plot = 2000, y_l
     
     if show_plot:
         fig, ax = plt.subplots()
-        ax.plot(fs_cut, real_scaling, '.', markersize = 1)
+        ax.plot(fs_cut, real_scaling, '.', markersize = 1, color = 'gray')
         plt.xlim((0, f_max_plot))
         plt.ylim((0, y_lim))
         plt.ylabel("amplitude (AU)")
