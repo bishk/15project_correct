@@ -20,7 +20,6 @@ def fft_wrapper(file_name, show_plot = True, n_secs = 90, f_max_plot = 2000, pas
     print("fft was complete")
     
     if show_plot:
-        %matplotlib inline
         fig, ax = plt.subplots()
         ax.plot(fs_cut, real_scaling)
         plt.xlim((0, f_max_plot))
