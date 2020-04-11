@@ -21,12 +21,12 @@ def fft_wrapper(file_name, show_plot = True, n_secs = 90, f_max_plot = 2000, pas
     
     if show_plot:
         fig, ax = plt.subplots()
-        ax.plot(fs_cut, real_scaling)
-        plt.xlim((0, f_max_plot))
+        ax.plot(fs_cut, real_scaling, '.', markersize = 0.2)
+        plt.xlim((160, 275))
         plt.ylabel("amplitude (AU)")
         plt.xlabel("frequency (inverse seconds)")
         if pass_title is not None:
             plt.title(pass_title)
-        plt.show()
+        #plt.show()
     
     return real_scaling, fs_cut, samplerate
