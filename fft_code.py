@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import scipy.fftpack
 from IPython.display import Audio
 
-def fft_wrapper(file_name, show_plot = True, n_secs = 90, f_max_plot = 2000, pass_title = None):
+def fft_wrapper(file_name, show_plot = True, n_secs = 90, f_max_plot = 2000, y_lim = .001, pass_title = None):
     sound, samplerate = librosa.load(file_name, sr = None)
     n_frames = n_secs*samplerate
     
@@ -21,8 +21,9 @@ def fft_wrapper(file_name, show_plot = True, n_secs = 90, f_max_plot = 2000, pas
     
     if show_plot:
         fig, ax = plt.subplots()
-        ax.plot(fs_cut, real_scaling, '.', markersize = 0.2)
-        plt.xlim((160, 275))
+        ax.plot(fs_cut, real_scaling, '.', markersize = 1, color = 'gray')
+        plt.xlim((0, f_max_plot))
+        plt.ylim((0, y_lim))
         plt.ylabel("amplitude (AU)")
         plt.xlabel("frequency (inverse seconds)")
         if pass_title is not None:
